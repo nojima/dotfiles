@@ -13,6 +13,7 @@ endif
 " Bundles
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'tcope/vim-surround'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-textobj-indent'
@@ -69,14 +70,15 @@ inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
 vnoremap <Down> g<Down>
 vnoremap <Up> g<Up>
+nnoremap <Space>j :<C-u>Unite file<CR>
+nnoremap <Space>k :<C-u>Unite buffer<CR>
 
 
 "
 " Misc
 "
-
-" load matchit
 runtime macros/matchit.vim
+let g:neocomplcache_enable_at_startup = 1
 
 " highlight tailing whitespaces
 highlight TailingWhitespace ctermbg=yellow guibg=yellow
