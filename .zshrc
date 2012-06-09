@@ -38,5 +38,6 @@ bindkey -e
 #
 # exports
 #
+export EDITOR=vim
 export LANG=en_US.utf-8
 export PATH=$HOME/bin:$PATH
