@@ -14,9 +14,10 @@ endif
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'tcope/vim-surround'
+NeoBundle 'tpope/vim-surround'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-textobj-indent'
+NeoBundle 'kana/vim-textobj-line'
 NeoBundle 'inkpot'
 
 filetype plugin indent on
