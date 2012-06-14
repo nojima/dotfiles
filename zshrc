@@ -12,7 +12,7 @@ compinit
 PROMPT="
 %B%{${fg[green]}%}%m:%{${fg[blue]}%}%/
 %{${fg[cyan]}%}%n%#%{${reset_color}%}%b "
-PROMPT2="       %B%{${fg[cyan]}%}...:%{${reset_color}%}%b "
+PROMPT2="%B%{${fg[cyan]}%}...:%{${reset_color}%}%b "
 
 #
 # aliases
