@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -e
-for f in $(echo $(dirname $0)/setup/* | sort); do
+for f in $(echo $HOME/dotfiles/_scripts/setup/* | sort); do
   echo $f
-  bash < $f
+  $f
 done

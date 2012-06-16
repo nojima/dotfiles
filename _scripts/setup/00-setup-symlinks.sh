@@ -1,10 +1,7 @@
 #!/bin/bash
 
 set -e
-
-dotfiles=$HOME/dotfiles
-targets=$dotfiles/[!_]*
-
-for f in $targets; do
+shopt -s extglob
+for f in $HOME/dotfiles/!(_*|README.md); do
   ln -v -s $(readlink -f $f) $HOME/.$(basename $f)
 done
