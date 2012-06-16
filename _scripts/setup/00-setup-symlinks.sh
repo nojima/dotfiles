@@ -2,8 +2,8 @@
 
 set -e
 
-dotfiles=$(dirname $0)/..
-targets=$dotfiles/*
+dotfiles=$HOME/dotfiles
+targets=$dotfiles/[!_]*
 
 for f in $targets; do
   ln -v -s $(readlink -f $f) $HOME/.$(basename $f)
