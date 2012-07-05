@@ -46,3 +46,6 @@ export PATH=$HOME/bin:$HOME/.rbenv/bin:$PATH
 # Misc
 #
 eval "$(rbenv init -)"
+
+# work around for a gvim bug in Ubuntu 12.04
+alias gvim="gvim -f"
