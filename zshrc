@@ -20,6 +20,7 @@ PROMPT2="%B%{${fg[cyan]}%}...:%{${reset_color}%}%b "
 alias ls="ls --color"
 alias la="ls -a"
 alias ll="ls -l"
+alias grep="grep -n --color=auto"
 alias -g L="| less -r"
 alias -g G="| grep"
 
