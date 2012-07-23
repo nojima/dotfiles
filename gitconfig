@@ -11,3 +11,4 @@
 	s = status
 	d = diff
 	l = log
+	g = grep -n
