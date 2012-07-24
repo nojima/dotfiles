@@ -37,7 +37,24 @@ setopt pushd_ignore_dups
 setopt list_packed
 setopt noautoremoveslash
 setopt nolistbeep
+setopt extended_history
+setopt append_history
+setopt hist_ignore_dups
+setopt share_history
 bindkey -e
+
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=10000
+SAVEHIST=1000000
+
+#
+# history search
+#
+autoload history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^P" history-beginning-search-backward-end
+bindkey "^N" history-beginning-search-forward-end
 
 #
 # exports
