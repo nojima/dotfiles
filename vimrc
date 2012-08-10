@@ -79,7 +79,6 @@ nnoremap <Space>k :<C-u>Unite buffer<CR>
 " Misc
 "
 runtime macros/matchit.vim
-let g:neocomplcache_enable_at_startup = 1
 
 " highlight tailing whitespaces
 highlight TailingWhitespace ctermbg=yellow guibg=yellow
@@ -88,3 +87,11 @@ autocmd BufWinEnter * match TailingWhitespace /\s\+$/
 autocmd InsertEnter * match TailingWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match TailingWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
+
+" Neocomplcache
+let g:neocomplcache_enable_at_startup = 1
+inoremap <expr><CR> neocomplcache#smart_close_popup()."\<CR>"
+inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y> neocomplcache#close_popup()
+inoremap <expr><C-e> neocomplcache#cancel_popup()
