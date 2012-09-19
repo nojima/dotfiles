@@ -18,6 +18,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-textobj-indent'
 NeoBundle 'kana/vim-textobj-line'
+NeoBundle 'vim-jp/cpp-vim'
 NeoBundle 'inkpot'
 
 filetype plugin indent on
