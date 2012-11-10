@@ -30,7 +30,7 @@ filetype plugin indent on
 syntax on
 colorscheme inkpot
 set encoding=utf-8
-set shiftwidth=2
+set shiftwidth=4
 set expandtab
 set smarttab
 set cindent
