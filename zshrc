@@ -24,6 +24,7 @@ alias grep="grep -n --color=auto"
 alias l="ls"
 alias v="vim"
 alias g="git"
+alias u="cd .."
 alias -g L="| less -r"
 alias -g G="| grep"
 
