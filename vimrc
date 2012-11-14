@@ -57,6 +57,8 @@ set cinwords=if,else,while,do,for,switch,case
 set hlsearch
 set t_Co=256
 set vb t_vb=
+set list
+set listchars=tab:»\ ,trail:-,extends:»,precedes:«,nbsp:%
 
 
 "
@@ -72,22 +74,12 @@ inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
 vnoremap <Down> g<Down>
 vnoremap <Up> g<Up>
-nnoremap <Space>j :<C-u>Unite file<CR>
-nnoremap <Space>k :<C-u>Unite buffer<CR>
 
 
 "
 " Misc
 "
 runtime macros/matchit.vim
-
-" highlight tailing whitespaces
-highlight TailingWhitespace ctermbg=yellow guibg=yellow
-match TailingWhitespace /\s\+$/
-autocmd BufWinEnter * match TailingWhitespace /\s\+$/
-autocmd InsertEnter * match TailingWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match TailingWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
 
 " Neocomplcache
 let g:neocomplcache_enable_at_startup = 1
@@ -96,3 +88,9 @@ inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y> neocomplcache#close_popup()
 inoremap <expr><C-e> neocomplcache#cancel_popup()
+
+" unite.vim
+nnoremap <Space>j :<C-u>Unite file file/new<CR>
+nnoremap <Space>k :<C-u>Unite buffer<CR>
+nnoremap <Space>r :<C-u>Unite file_rec/async<CR>
+let g:unite_enable_start_insert = 1
