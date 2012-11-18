@@ -58,6 +58,13 @@ bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
 #
+# edit command line
+#
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line
+
+#
 # exports
 #
 export EDITOR=vim
