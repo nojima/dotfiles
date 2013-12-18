@@ -1,4 +1,0 @@
-escape ^t^t
-autodetach on
-hardstatus on
-hardstatus alwayslastline "%H| %`%-w%{=b bw}%n %t%{-}%+w %=|%y/%m/%d %02c"
