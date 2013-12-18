@@ -5,6 +5,10 @@
 ## Setup
 
 ```sh
+# Setup Zsh
+$ git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+$ chsh -s /bin/zsh
+
 # Setup Vim
 $ mkdir ~/.vim_backup
 $ vim +NeoBundleInstall +qa
