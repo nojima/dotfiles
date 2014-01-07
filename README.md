@@ -11,6 +11,8 @@ $ chsh -s /bin/zsh
 
 # Setup Vim
 $ mkdir ~/.vim_backup
+$ mkdir -p ~/.vim/bundle
+$ git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 $ vim +NeoBundleInstall +qa
 $ cd ~/.vim/bundle/vimproc
 $ make
