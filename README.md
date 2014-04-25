@@ -14,6 +14,7 @@ $ mkdir ~/.vim_backup
 $ mkdir -p ~/.vim/bundle
 $ git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 $ vim +NeoBundleInstall +qa
+# Inkpot に関するエラーは無視する
 $ cd ~/.vim/bundle/vimproc
 $ make
 
