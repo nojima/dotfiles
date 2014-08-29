@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="blinks"
+ZSH_THEME="blinks-nojima"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -56,8 +56,7 @@ alias -g L="| less -r"
 alias -g G="| grep"
 
 export LANG=en_US.UTF-8
-export PATH=$HOME/opt/bin:$HOME/.rbenv/bin:$PATH
-eval "$(rbenv init -)"
+export PATH=$HOME/bin:$HOME/.rbenv/bin:$PATH
 typeset -U path
 
 ssh_agent_script=/tmp/ssh-agent-$USER.sh
@@ -69,3 +68,5 @@ fi
 source $ssh_agent_script
 
 autoload zargs
+eval "$(rbenv init -)"
+eval "$(direnv hook zsh)"

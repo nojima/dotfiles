@@ -16,6 +16,7 @@ exe "set runtimepath+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-textobj-indent'
 NeoBundle 'kana/vim-textobj-line'
@@ -53,7 +54,6 @@ set ignorecase
 set smartcase
 set backup
 set backupdir=$HOME/.vim_backup
-set autochdir
 set hidden
 set fileencodings=ucs-bom,utf-8,iso-2022-jp,euc-jp,cp932,utf-16,utf-16le,latin1
 set fileformats=unix,dos,mac
@@ -108,6 +108,7 @@ endif
 nnoremap <Space>f :<C-u>Unite file file/new<CR>
 nnoremap <Space>b :<C-u>Unite buffer<CR>
 nnoremap <Space>r :<C-u>Unite file_rec/async<CR>
+nnoremap <Space>g :<C-u>Unite grep:. -no-quit<CR>
 let g:unite_enable_start_insert = 1
 
 " markdown
