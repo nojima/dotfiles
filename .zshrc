@@ -1,3 +1,6 @@
+# vim: foldmethod=marker
+
+# oh-my-zsh {{{
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
@@ -5,7 +8,11 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="blinks-nojima"
+if [ -f $ZSH/themes/blinks-nojima.zsh-theme ]; then
+    ZSH_THEME="blinks-nojima"
+else
+    ZSH_THEME="blinks"
+fi
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -43,8 +50,14 @@ DISABLE_CORRECTION="true"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
+# }}}
 
-# Customize to your needs...
+# export {{{
+export LANG=en_US.UTF-8
+export EDITOR=vim
+# }}}
+
+# alias {{{
 alias gs="git status -s"
 alias gd="git diff"
 alias gdh="git diff HEAD^"
@@ -54,11 +67,9 @@ alias gls="git log --stat"
 alias ack="ack-grep"
 alias -g L="| less -r"
 alias -g G="| grep"
+# }}}
 
-export LANG=en_US.UTF-8
-export PATH=$HOME/bin:$HOME/.rbenv/bin:$PATH
-typeset -U path
-
+# ssh agent {{{
 ssh_agent_script=/tmp/ssh-agent-$USER.sh
 if ! [ -f $ssh_agent_script ]; then
   touch $ssh_agent_script
@@ -66,7 +77,19 @@ if ! [ -f $ssh_agent_script ]; then
   ssh-agent > $ssh_agent_script
 fi
 source $ssh_agent_script
+# }}}
 
-autoload zargs
-eval "$(rbenv init -)"
-eval "$(direnv hook zsh)"
+# rbenv {{{
+if [ -d $HOME/.rbenv ]; then
+    export PATH=$HOME/.rbenv/bin:$PATH
+    eval "$(rbenv init -)"
+fi
+# }}}
+
+# direnv {{{
+if which direnv > /dev/null; then
+    eval "$(direnv hook zsh)"
+fi
+# }}}
+
+typeset -U path
