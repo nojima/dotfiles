@@ -8,8 +8,14 @@ if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
   call neobundle#rc(expand('~/.vim/bundle/'))
 endif
-set runtimepath+=$GOROOT/misc/vim
-exe "set runtimepath+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
+" golang {{{
+if $GOROOT != ''
+  set runtimepath+=$GOROOT/misc/vim
+endif
+if $GOPATH != ''
+  exe "set runtimepath+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
+endif
+" }}}
 
 " Bundles
 NeoBundle 'Shougo/vimproc'
