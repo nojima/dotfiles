@@ -8,7 +8,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-if [ -f $ZSH/themes/blinks-nojima.zsh-theme ]; then
+if [[ -f $ZSH/themes/blinks-nojima.zsh-theme ]]; then
     ZSH_THEME="blinks-nojima"
 else
     ZSH_THEME="blinks"
@@ -71,7 +71,7 @@ alias -g G="| grep"
 
 # ssh agent {{{
 ssh_agent_script=/tmp/ssh-agent-$USER.sh
-if ! [ -f $ssh_agent_script ]; then
+if ! [[ -f $ssh_agent_script ]]; then
   touch $ssh_agent_script
   chmod 600 $ssh_agent_script
   ssh-agent > $ssh_agent_script
@@ -79,14 +79,27 @@ fi
 source $ssh_agent_script
 # }}}
 
-# rbenv {{{
-if [ -d $HOME/.rbenv ]; then
+# export paths {{{
+if [[ -d $HOME/bin ]]; then
+    export PATH=$HOME/bin:$PATH
+fi
+
+for d in $HOME/opt/*/bin; do
+    if [[ -d $d ]]; then
+        export PATH=$d:$PATH
+    fi
+done
+
+if [[ -d $HOME/.rbenv ]]; then
     export PATH=$HOME/.rbenv/bin:$PATH
     eval "$(rbenv init -)"
 fi
-# }}}
 
-# direnv {{{
+if [[ -d /usr/local/go ]]; then
+    export PATH=/usr/local/go/bin:$PATH
+    export GOROOT=/usr/local/go
+fi
+
 if which direnv > /dev/null; then
     eval "$(direnv hook zsh)"
 fi
