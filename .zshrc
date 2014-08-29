@@ -84,7 +84,7 @@ if [[ -d $HOME/bin ]]; then
     export PATH=$HOME/bin:$PATH
 fi
 
-for d in $HOME/opt/*/bin; do
+for d in $HOME/opt/*/bin(.N); do
     if [[ -d $d ]]; then
         export PATH=$d:$PATH
     fi
