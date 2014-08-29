@@ -18,6 +18,8 @@ git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 ln -s ~/dotfiles/zsh/blinks-nojima.zsh-theme ~/.oh-my-zsh/themes
 chsh -s /bin/zsh
 
+# (Re-login with zsh to refresh environment variables)
+
 # Setup Vim
 mkdir -p ~/.vim_backup ~/.vim_undo ~/.vim/bundle
 git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
