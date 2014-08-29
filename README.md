@@ -13,7 +13,6 @@ $ chsh -s /bin/zsh
 $ mkdir -p ~/.vim_backup ~/.vim_undo ~/.vim/bundle
 $ git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 $ vim +NeoBundleInstall +qa
-# Inkpot に関するエラーは無視する
 $ cd ~/.vim/bundle/vimproc; make
 
 # Setup Ruby

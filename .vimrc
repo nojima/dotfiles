@@ -39,7 +39,7 @@ filetype plugin indent on
 
 " Options {{{
 syntax on
-colorscheme inkpot
+silent! colorscheme inkpot
 set encoding=utf-8
 set shiftwidth=4
 set expandtab
