@@ -10,13 +10,11 @@ $ git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 $ chsh -s /bin/zsh
 
 # Setup Vim
-$ mkdir ~/.vim_backup
-$ mkdir -p ~/.vim/bundle
+$ mkdir -p ~/.vim_backup ~/.vim_undo ~/.vim/bundle
 $ git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 $ vim +NeoBundleInstall +qa
 # Inkpot に関するエラーは無視する
-$ cd ~/.vim/bundle/vimproc
-$ make
+$ cd ~/.vim/bundle/vimproc; make
 
 # Setup Ruby
 $ git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
@@ -24,7 +22,7 @@ $ mkdir -p ~/.rbenv/plugins
 $ git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 $ sudo apt-get build-dep ruby2.0
 $ rbenv install -l
-$ rbenv install 2.0.0-pXXX
-$ rbenv global 2.0.0-pXXX
+$ rbenv install 2.x.x
+$ rbenv global 2.x.x
 $ rbenv rehash
 ```

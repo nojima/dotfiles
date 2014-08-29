@@ -23,6 +23,7 @@ NeoBundle 'kana/vim-textobj-line'
 NeoBundle 'vim-jp/cpp-vim'
 NeoBundle 'inkpot'
 NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'mbbill/undotree'
 if has('lua')
   NeoBundle 'Shougo/neocomplete.vim'
 endif
@@ -64,7 +65,10 @@ set t_Co=256
 set vb t_vb=
 set list
 set listchars=tab:»\ ,trail:-,extends:»,precedes:«,nbsp:%
-
+if has('persistent_undo')
+  set undodir=$HOME/.vim_undo
+  set undofile
+endif
 
 "
 " Keymap
