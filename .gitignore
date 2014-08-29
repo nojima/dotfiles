@@ -1,0 +1,7 @@
+# Vim
+.*.s[a-w][a-z]
+.s[a-w][a-z]
+*~
+
+# tags
+TAGS

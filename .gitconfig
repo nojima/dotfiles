@@ -1,0 +1,5 @@
+[user]
+	email = nojima@ynojima.com
+	name = Yusuke Nojima
+[core]
+	excludesfile = /home/nojima/.gitignore
