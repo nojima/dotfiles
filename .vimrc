@@ -1,6 +1,5 @@
-"
-" NeoBundle
-"
+" vim: foldmethod=marker
+" NeoBundle {{{
 set nocompatible
 filetype off
 filetype plugin indent off
@@ -27,13 +26,12 @@ NeoBundle 'mbbill/undotree'
 if has('lua')
   NeoBundle 'Shougo/neocomplete.vim'
 endif
+NeoBundle 'scrooloose/syntastic'
 
 filetype plugin indent on
+" }}}
 
-
-"
-" Options
-"
+" Options {{{
 syntax on
 colorscheme inkpot
 set encoding=utf-8
@@ -69,10 +67,9 @@ if has('persistent_undo')
   set undodir=$HOME/.vim_undo
   set undofile
 endif
+" }}}
 
-"
-" Keymap
-"
+" Keymap {{{
 nnoremap j gj
 nnoremap k gk
 vnoremap j gj
@@ -83,13 +80,13 @@ inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
 vnoremap <Down> g<Down>
 vnoremap <Up> g<Up>
+" }}}
 
-
-"
-" Misc
-"
+" Misc {{{
 runtime macros/matchit.vim
+" }}}
 
+" Neocomplete {{{
 if has('lua')
   let g:neocomplete#enable_at_startup = 1
   let g:neocomplete#enable_smart_case = 1
@@ -107,15 +104,25 @@ if has('lua')
   inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
   inoremap <expr><BS>  neocomplete#smart_close_popup()."\<C-h>"
 endif
+" }}}
 
-" unite.vim
+" unite.vim {{{
 nnoremap <Space>f :<C-u>Unite file file/new<CR>
 nnoremap <Space>b :<C-u>Unite buffer<CR>
 nnoremap <Space>r :<C-u>Unite file_rec/async<CR>
 nnoremap <Space>g :<C-u>Unite grep:. -no-quit<CR>
 let g:unite_enable_start_insert = 1
+" }}}
 
-" markdown
+" markdown {{{
 let g:vim_markdown_folding_disabled = 1
+" }}}
+
+" syntastic {{{
+let g:syntastic_cpp_compiler = 'g++'
+let g:syntastic_cpp_compiler_options = ' -std=gnu++11 -DCACHELINE_SIZE=64'
+let g:syntastic_mode_map = { 'mode': 'active',
+                           \ 'active_filetypes': ['python', 'c++', 'c'] }
+" }}}
 
 autocmd FileType python setlocal completeopt-=preview
