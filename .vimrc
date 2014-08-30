@@ -115,7 +115,8 @@ let g:unite_enable_start_insert = 1
 nnoremap <Space>f :<C-u>Unite file file/new<CR>
 nnoremap <Space>b :<C-u>Unite buffer<CR>
 
-function! MyUniteFileRec()
+function! s:my_unite_file_rec()
+  " Use file_rec/git in git working directories.
   call system('git rev-parse --is-inside-work-tree > /dev/null 2>&1')
   if v:shell_error
     execute 'Unite file_rec/async'
@@ -123,7 +124,7 @@ function! MyUniteFileRec()
     execute 'Unite file_rec/git'
   endif
 endfunction
-nnoremap <Space>r :<C-u>call MyUniteFileRec()<CR>
+nnoremap <Space>r :<C-u>call <SID>my_unite_file_rec()<CR>
 
 nnoremap <Space>g :<C-u>Unite grep:. -no-quit<CR>
 " Use 'ag' command if available.
