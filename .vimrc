@@ -110,6 +110,11 @@ endif
 " }}}
 
 " unite.vim {{{
+let g:unite_enable_start_insert = 1
+
+nnoremap <Space>f :<C-u>Unite file file/new<CR>
+nnoremap <Space>b :<C-u>Unite buffer<CR>
+
 function! MyUniteFileRec()
   call system('git rev-parse --is-inside-work-tree > /dev/null 2>&1')
   if v:shell_error
@@ -118,11 +123,16 @@ function! MyUniteFileRec()
     execute 'Unite file_rec/git'
   endif
 endfunction
-nnoremap <Space>f :<C-u>Unite file file/new<CR>
-nnoremap <Space>b :<C-u>Unite buffer<CR>
 nnoremap <Space>r :<C-u>call MyUniteFileRec()<CR>
+
 nnoremap <Space>g :<C-u>Unite grep:. -no-quit<CR>
-let g:unite_enable_start_insert = 1
+" Use 'ag' command if available.
+call system("which ag > /dev/null 2>&1")
+if v:shell_error == 0
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  let g:unite_source_grep_recursive_opt = ''
+endif
 " }}}
 
 " markdown {{{
