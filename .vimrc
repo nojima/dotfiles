@@ -1,4 +1,4 @@
-" vim: foldmethod=marker
+" vim: foldmethod=marker sw=2 ts=2 expandtab
 " NeoBundle {{{
 set nocompatible
 filetype off
@@ -113,9 +113,17 @@ endif
 " }}}
 
 " unite.vim {{{
+function! MyUniteFileRec()
+  call system('git rev-parse --is-inside-work-tree > /dev/null 2>&1')
+  if v:shell_error
+    execute 'Unite file_rec/async'
+  else
+    execute 'Unite file_rec/git'
+  endif
+endfunction
 nnoremap <Space>f :<C-u>Unite file file/new<CR>
 nnoremap <Space>b :<C-u>Unite buffer<CR>
-nnoremap <Space>r :<C-u>Unite file_rec/async<CR>
+nnoremap <Space>r :<C-u>call MyUniteFileRec()<CR>
 nnoremap <Space>g :<C-u>Unite grep:. -no-quit<CR>
 let g:unite_enable_start_insert = 1
 " }}}
