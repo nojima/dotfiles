@@ -18,21 +18,19 @@ endif
 " }}}
 
 " Bundles
-NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'kana/vim-textobj-indent'
-NeoBundle 'kana/vim-textobj-line'
-NeoBundle 'vim-jp/cpp-vim'
+NeoBundle 'Shougo/vimproc'
+NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'inkpot'
-NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'mbbill/undotree'
+NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'vim-jp/cpp-vim'
 if has('lua')
   NeoBundle 'Shougo/neocomplete.vim'
 endif
-NeoBundle 'scrooloose/syntastic'
 
 filetype plugin indent on
 " }}}
@@ -54,7 +52,6 @@ set laststatus=2
 set showcmd
 set scrolloff=5
 set nocp incsearch
-set statusline=%<%f\ %h%m%r%y%=%l,%v\ %LL\ %{(&fenc!=''?&fenc:&enc).'/'.&ff}
 set ignorecase
 set smartcase
 set backup
@@ -137,6 +134,22 @@ let g:syntastic_cpp_compiler = 'g++'
 let g:syntastic_cpp_compiler_options = ' -std=gnu++11 -DCACHELINE_SIZE=64'
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': ['python', 'c++', 'c'] }
+" }}}
+
+" lightline {{{
+let g:lightline = {
+  \   'active': {
+  \     'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'readonly', 'relativepath', 'modified' ] ],
+  \     'right': [ [ 'lineinfo' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype'] ]
+  \   },
+  \   'component': {
+  \     'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+  \   },
+  \   'component_visible_condition': {
+  \     'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+  \   },
+  \   'colorscheme': 'wombat'
+  \ }
 " }}}
 
 autocmd FileType python setlocal completeopt-=preview
