@@ -5,6 +5,8 @@
 ## Setup
 
 ```sh
+git clone https://github.com/nojima/dotfiles.git ~/dotfiles
+
 # Make symlink
 cd
 for f in .vimrc .zshrc .tmux.conf .gitconfig .gitignore; do
@@ -15,6 +17,8 @@ done
 git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 ln -s ~/dotfiles/zsh/blinks-nojima.zsh-theme ~/.oh-my-zsh/themes
 chsh -s /bin/zsh
+
+# (Re-login to start zsh)
 
 # Setup Vim
 mkdir -p ~/.vim_backup ~/.vim_undo ~/.vim/bundle
@@ -27,6 +31,7 @@ git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
 mkdir ~/.rbenv/plugins
 git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 sudo apt-get build-dep ruby2.0
+source ~/.zshrc
 rbenv install -l
 rbenv install 2.x.x
 rbenv global 2.x.x
