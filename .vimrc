@@ -1,13 +1,12 @@
 " vim: foldmethod=marker sw=2 ts=2 expandtab
 " NeoBundle {{{
-set nocompatible
-filetype off
-filetype plugin indent off
-
 if has('vim_starting')
+  set nocompatible
   set runtimepath+=~/.vim/bundle/neobundle.vim/
-  call neobundle#rc(expand('~/.vim/bundle/'))
 endif
+
+call neobundle#begin(expand('~/.vim/bundle/'))
+
 " golang {{{
 if $GOROOT != ''
   set runtimepath+=$GOROOT/misc/vim
@@ -32,40 +31,45 @@ if has('lua')
   NeoBundle 'Shougo/neocomplete.vim'
 endif
 
+call neobundle#end()
+
 filetype plugin indent on
+
+NeoBundleCheck
 " }}}
 
 " Options {{{
-syntax on
+syntax enable
 silent! colorscheme inkpot
-set encoding=utf-8
-set shiftwidth=4
-set expandtab
-set smarttab
-set cindent
 set backspace=2
-set wildmenu
-set formatoptions+=mM
-set formatoptions-=ro
-set number
-set laststatus=2
-set showcmd
-set scrolloff=5
-set nocp incsearch
-set ignorecase
-set smartcase
 set backup
 set backupdir=$HOME/.vim_backup
-set hidden
-set fileencodings=ucs-bom,utf-8,iso-2022-jp,euc-jp,cp932,utf-16,utf-16le,latin1
-set fileformats=unix,dos,mac
+set cindent
 set cinoptions=:0,p0,t0
 set cinwords=if,else,while,do,for,switch,case
+set encoding=utf-8
+set expandtab
+set fileencodings=ucs-bom,utf-8,iso-2022-jp,euc-jp,cp932,utf-16,utf-16le,latin1
+set fileformats=unix,dos,mac
+set formatoptions+=mM
+set formatoptions-=ro
+set hidden
 set hlsearch
-set t_Co=256
-set vb t_vb=
+set ignorecase
+set laststatus=2
 set list
 set listchars=tab:»\ ,trail:-,extends:»,precedes:«,nbsp:%
+set nocp incsearch
+set number
+set scrolloff=5
+set shiftwidth=4
+set showcmd
+set smartcase
+set smarttab
+set t_Co=256
+set ttimeoutlen=50
+set vb t_vb=
+set wildmenu
 if has('persistent_undo')
   set undodir=$HOME/.vim_undo
   set undofile
