@@ -47,7 +47,7 @@ DISABLE_CORRECTION="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=()
 
 source $ZSH/oh-my-zsh.sh
 # }}}
@@ -84,7 +84,7 @@ if [[ -d $HOME/bin ]]; then
     export PATH=$HOME/bin:$PATH
 fi
 
-for d in $HOME/opt/*/bin(.N); do
+for d in $HOME/opt/*/bin(N); do
     if [[ -d $d ]]; then
         export PATH=$d:$PATH
     fi

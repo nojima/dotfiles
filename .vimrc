@@ -19,8 +19,9 @@ endif
 " Bundles
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimproc'
-NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'inkpot'
+NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'mbbill/undotree'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'scrooloose/syntastic'
