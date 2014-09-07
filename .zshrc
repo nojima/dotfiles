@@ -64,8 +64,8 @@ alias gdh="git diff HEAD^"
 alias gl="git log"
 alias glp="git log -p"
 alias gls="git log --stat"
-alias ack="ack-grep"
-alias -g L="| less -r"
+alias tmux="tmux -2"
+alias -g L="| less -R"
 alias -g G="| grep"
 # }}}
 
