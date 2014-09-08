@@ -105,4 +105,14 @@ if which direnv > /dev/null; then
 fi
 # }}}
 
+# misc {{{
+HISTSIZE=100000
+SAVEHIST=1000000
 typeset -U path
+stty stop undef
+# }}}
+
+# load local settings
+if [[ -f $HOME/.zsh_local ]]; then
+    source $HOME/.zsh_local
+fi
