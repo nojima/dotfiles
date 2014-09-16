@@ -58,12 +58,13 @@ export EDITOR=vim
 # }}}
 
 # alias {{{
-alias gs="git status -s"
+alias gco="git checkout"
 alias gd="git diff"
 alias gdh="git diff HEAD^"
 alias gl="git log"
 alias glp="git log -p"
 alias gls="git log --stat"
+alias gs="git status -s"
 alias tmux="tmux -2"
 alias -g L="| less -R"
 alias -g G="| grep"
@@ -111,9 +112,10 @@ SAVEHIST=1000000
 stty stop undef
 # }}}
 
-# load local settings
+# load local settings {{{
 if [[ -f $HOME/.zshrc_local ]]; then
     source $HOME/.zshrc_local
 fi
+# }}}
 
 typeset -U path
