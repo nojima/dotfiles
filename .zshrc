@@ -71,13 +71,13 @@ alias -g G="| grep"
 # }}}
 
 # ssh agent {{{
-ssh_agent_script=/tmp/ssh-agent-$USER.sh
-if ! [[ -f $ssh_agent_script ]]; then
-  touch $ssh_agent_script
-  chmod 600 $ssh_agent_script
-  ssh-agent > $ssh_agent_script
-fi
-source $ssh_agent_script
+#ssh_agent_script=/tmp/ssh-agent-$USER.sh
+#if ! [[ -f $ssh_agent_script ]]; then
+#  touch $ssh_agent_script
+#  chmod 600 $ssh_agent_script
+#  ssh-agent > $ssh_agent_script
+#fi
+#source $ssh_agent_script
 # }}}
 
 # export paths {{{
