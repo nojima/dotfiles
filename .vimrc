@@ -7,7 +7,7 @@ endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))
 
-" golang {{{
+" load golang plugin {{{
 if $GOROOT != ''
   set runtimepath+=$GOROOT/misc/vim
 endif
@@ -169,4 +169,21 @@ let g:lightline = {
   \ }
 " }}}
 
-autocmd FileType python setlocal completeopt-=preview
+" Python {{{
+function! s:setup_python()
+  setlocal tabstop=4
+  setlocal shiftwidth=4
+  setlocal expandtab
+  setlocal completeopt-=preview
+endfunction
+autocmd FileType python call <SID>setup_python()
+" }}}
+
+" Go {{{
+function! s:setup_golang()
+  setlocal tabstop=4
+  setlocal shiftwidth=4
+  setlocal noexpandtab
+endfunction
+autocmd FileType go call <SID>setup_golang()
+" }}}
