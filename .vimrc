@@ -175,6 +175,20 @@ function! s:setup_python()
   setlocal shiftwidth=4
   setlocal expandtab
   setlocal completeopt-=preview
+  setlocal includeexpr=IncludePythonModule(v:fname)
+  setlocal path=$PYTHONPATH
+endfunction
+function! IncludePythonModule(str)
+    let l:path = substitute(a:str, '\.', '\/', 'g')
+    for dir in split($PYTHONPATH, ':')
+        let l:base = $PYTHONPATH . '/' . l:path
+        if isdirectory(l:base) && filereadable(l:base . '/__init__.py')
+            return l:base . '/__init__.py'
+        elseif filereadable(l:base . '.py')
+            return l:base . '.py'
+        endif
+    endfor
+    return l:path
 endfunction
 autocmd FileType python call <SID>setup_python()
 " }}}
