@@ -179,16 +179,20 @@ function! s:setup_python()
   setlocal path=$PYTHONPATH
 endfunction
 function! IncludePythonModule(str)
-    let l:path = substitute(a:str, '\.', '\/', 'g')
-    for dir in split($PYTHONPATH, ':')
-        let l:base = $PYTHONPATH . '/' . l:path
-        if isdirectory(l:base) && filereadable(l:base . '/__init__.py')
-            return l:base . '/__init__.py'
-        elseif filereadable(l:base . '.py')
-            return l:base . '.py'
-        endif
-    endfor
-    return l:path
+  let path = substitute(a:str, '\.', '\/', 'g')
+  let pythonpath = system("python -c 'import sys; print (\":\".join(sys.path))'")
+  for dir in split(pythonpath, ':')
+    if dir == ''
+      continue
+    end
+    let base = dir . '/' . path
+    if isdirectory(base) && filereadable(base . '/__init__.py')
+      return base . '/__init__.py'
+    elseif filereadable(base . '.py')
+      return base . '.py'
+    endif
+  endfor
+  return path
 endfunction
 autocmd FileType python call <SID>setup_python()
 " }}}
