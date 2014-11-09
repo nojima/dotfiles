@@ -66,6 +66,7 @@ alias glp="git log -p"
 alias gls="git log --stat"
 alias gs="git status -s"
 alias tmux="tmux -2"
+alias rtags="ctags -f TAGS -R ."
 alias -g L="| less -R"
 alias -g G="| grep"
 # }}}
