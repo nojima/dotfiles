@@ -169,6 +169,15 @@ let g:lightline = {
   \ }
 " }}}
 
+" Ruby {{{
+function! s:setup_ruby()
+  setlocal tabstop=2
+  setlocal shiftwidth=2
+  setlocal expandtab
+endfunction
+autocmd FileType ruby call <SID>setup_ruby()
+" }}}
+
 " Python {{{
 function! s:setup_python()
   setlocal tabstop=4
