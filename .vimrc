@@ -24,6 +24,7 @@ NeoBundle 'inkpot'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'mbbill/undotree'
 NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'rhysd/clever-f.vim'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'seveas/bind.vim'
 NeoBundle 'tpope/vim-fugitive'
@@ -167,6 +168,10 @@ let g:lightline = {
   \   },
   \   'colorscheme': 'wombat'
   \ }
+" }}}
+
+" clever-f {{{
+let g:clever_f_smart_case = 1
 " }}}
 
 " Ruby {{{
