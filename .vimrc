@@ -84,6 +84,8 @@ nnoremap j gj
 nnoremap k gk
 vnoremap j gj
 vnoremap k gk
+nnoremap <Space>a 0
+nnoremap <space>e $
 nnoremap <Down> g<Down>
 nnoremap <Up> g<Up>
 inoremap <Down> <C-o>gj
