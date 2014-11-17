@@ -9,7 +9,7 @@ git clone https://github.com/nojima/dotfiles.git ~/dotfiles
 
 # Make symlink
 cd
-for f in .vimrc .zshrc .tmux.conf .gitconfig .gitignore; do
+for f in .vimrc .zshrc .tmux.conf .gitconfig .gitignore .pylintrc; do
     ln -s dotfiles/$f $f
 done
 
