@@ -84,14 +84,19 @@ nnoremap j gj
 nnoremap k gk
 vnoremap j gj
 vnoremap k gk
-nnoremap <Space>a 0
-nnoremap <space>e $
+
 nnoremap <Down> g<Down>
 nnoremap <Up> g<Up>
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
 vnoremap <Down> g<Down>
 vnoremap <Up> g<Up>
+
+nnoremap <Space>a 0
+nnoremap <Space>e $
+
+nnoremap q: :q
+nnoremap <Space>q q:
 " }}}
 
 " Misc {{{
