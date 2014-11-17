@@ -136,6 +136,7 @@ endfunction
 nnoremap <Space>r :<C-u>call <SID>my_unite_file_rec()<CR>
 
 nnoremap <Space>g :<C-u>Unite grep:. -no-quit<CR>
+nnoremap <Space>G :<C-u>Unite grep:.::<C-r><C-w> -no-quit<CR>
 " Use 'ag' command if available.
 call system("which ag > /dev/null 2>&1")
 if v:shell_error == 0
