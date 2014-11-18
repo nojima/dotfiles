@@ -20,7 +20,7 @@ endif
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'derekwyatt/vim-scala'
-NeoBundle 'inkpot'
+NeoBundle 'ciaranm/inkpot'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'mbbill/undotree'
 NeoBundle 'plasticboy/vim-markdown'
