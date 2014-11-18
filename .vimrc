@@ -73,6 +73,7 @@ set t_Co=256
 set ttimeoutlen=50
 set vb t_vb=
 set wildmenu
+set wildmode=list:longest
 if has('persistent_undo')
   set undodir=$HOME/.vim_undo
   set undofile
