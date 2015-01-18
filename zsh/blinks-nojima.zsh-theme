@@ -23,6 +23,6 @@ ZSH_THEME_GIT_PROMPT_CLEAN=""
 
 PROMPT='%{%f%k%b%}
 %B%F{blue}%(?.[%?].%F{magenta}[%?]%F{blue})[%D{%m/%d %H:%M:%S}][%m]%F{green}[%~]$(git_prompt_info)%E%{%f%k%b%}
-%{%K{${bkg}}%}$(_prompt_char)%{%K{${bkg}}%} %#%{%f%k%b%} '
+%#%{%f%k%b%} '
 
 RPROMPT=
