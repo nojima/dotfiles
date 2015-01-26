@@ -60,6 +60,7 @@ set hidden
 set hlsearch
 set ignorecase
 set laststatus=2
+set lazyredraw
 set list
 set listchars=tab:»\ ,trail:-,extends:»,precedes:«,nbsp:%
 set nocp incsearch
