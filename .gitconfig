@@ -3,3 +3,5 @@
 	name = Yusuke Nojima
 [core]
 	excludesfile = /home/nojima/.gitignore
+[push]
+	default = simple
