@@ -52,6 +52,18 @@ plugins=()
 source $ZSH/oh-my-zsh.sh
 # }}}
 
+# history {{{
+function select_history_by_peco() {
+    BUFFER=$(fc -l -n 1 | tac | peco)
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+if which peco >/dev/null 2>&1; then
+    zle -N select_history_by_peco
+    bindkey '^r' select_history_by_peco
+fi
+# }}}
+
 # export {{{
 export LANG=en_US.UTF-8
 export EDITOR=vim
@@ -67,18 +79,9 @@ alias gls="git log --stat"
 alias gs="git status -s"
 alias tmux="tmux -2"
 alias rtags="ctags -f TAGS -R ."
+alias history="fc -li 1"
 alias -g L="| less -R"
 alias -g G="| grep"
-# }}}
-
-# ssh agent {{{
-#ssh_agent_script=/tmp/ssh-agent-$USER.sh
-#if ! [[ -f $ssh_agent_script ]]; then
-#  touch $ssh_agent_script
-#  chmod 600 $ssh_agent_script
-#  ssh-agent > $ssh_agent_script
-#fi
-#source $ssh_agent_script
 # }}}
 
 # export paths {{{
