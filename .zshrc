@@ -54,7 +54,12 @@ source $ZSH/oh-my-zsh.sh
 
 # history {{{
 function select_history_by_peco() {
-    BUFFER=$(fc -l -n 1 | tail -r | peco)
+    if which tac >/dev/null 2>&1; then
+        TAC="tac"
+    else
+        TAC="tail -r"
+    fi
+    BUFFER=$(fc -l -n 1 | $TAC | peco)
     CURSOR=$#BUFFER
     zle clear-screen
 }
