@@ -5,3 +5,15 @@
 
 # tags
 TAGS
+
+.DS_Store
+*.iml
+.idea/
+.vscode/
+
+# 謎
+.factorypath
+
+telepresence.log
+
+.envrc

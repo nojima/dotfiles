@@ -54,7 +54,7 @@ source $ZSH/oh-my-zsh.sh
 
 # history {{{
 function select_history_by_peco() {
-    BUFFER=$(fc -l -n 1 | tac | peco)
+    BUFFER=$(fc -l -n 1 | tail -r | peco)
     CURSOR=$#BUFFER
     zle clear-screen
 }
@@ -79,6 +79,12 @@ alias gls="git log --stat"
 alias gs="git status -s"
 alias tmux="tmux -2"
 alias rtags="ctags -f TAGS -R ."
+alias k="kubectl"
+alias kg="kubectl get"
+alias kgp="kubectl get pod"
+alias kd="kubectl describe"
+alias kdp="kubectl describe pod"
+alias kl="kubectl logs"
 alias history="fc -li 1"
 alias -g L="| less -R"
 alias -g G="| grep"

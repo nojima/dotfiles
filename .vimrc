@@ -30,6 +30,7 @@ NeoBundle 'seveas/bind.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'vim-jp/cpp-vim'
+NeoBundle 'vim-jp/vim-go-extra'
 if has('lua')
   NeoBundle 'Shougo/neocomplete.vim'
 endif
@@ -43,7 +44,7 @@ NeoBundleCheck
 
 " Options {{{
 syntax enable
-silent! colorscheme inkpot
+silent! colorscheme default
 set backspace=2
 set backup
 set backupdir=$HOME/.vim_backup
@@ -99,6 +100,9 @@ nnoremap <Space>e $
 
 nnoremap q: :q
 nnoremap <Space>q q:
+
+inoremap <C-j> <Esc>
+vnoremap <C-j> <Esc>
 " }}}
 
 " Misc {{{
