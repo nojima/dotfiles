@@ -1,80 +1,32 @@
-# vim: foldmethod=marker
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
 
-# oh-my-zsh {{{
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-if [[ -f $ZSH/themes/blinks-nojima.zsh-theme ]]; then
-    ZSH_THEME="blinks-nojima"
-else
-    ZSH_THEME="blinks"
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# Customize to your needs...
 
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
+# WSLでコマンドの補完が遅いことへの対策
+unsetopt PATH_DIRS
 
-# Uncomment this to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
+# リダイレクトによる上書きを禁止する
+setopt noclobber
 
-# Uncomment to change how often before auto-updates occur? (in days)
-# export UPDATE_ZSH_DAYS=13
+# Ctrl-S でターミナルをサスペンドしない
+stty stop undef
 
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
+HISTSIZE=100000
+SAVEHIST=1000000
 
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want to disable command autocorrection
-DISABLE_CORRECTION="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment following line if you want to disable marking untracked files under
-# VCS as dirty. This makes repository status check for large repositories much,
-# much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=()
-
-source $ZSH/oh-my-zsh.sh
-# }}}
-
-# history {{{
-function select_history_by_peco() {
-    if which tac >/dev/null 2>&1; then
-        TAC="tac"
-    else
-        TAC="tail -r"
-    fi
-    BUFFER=$(fc -l -n 1 | $TAC | peco)
-    CURSOR=$#BUFFER
-    zle clear-screen
-}
-if which peco >/dev/null 2>&1; then
-    zle -N select_history_by_peco
-    bindkey '^r' select_history_by_peco
-fi
-# }}}
-
-# export {{{
 export LANG=en_US.UTF-8
 export EDITOR=vim
-# }}}
 
-# alias {{{
 alias gco="git checkout"
 alias gd="git diff"
 alias gdh="git diff HEAD^"
@@ -92,19 +44,15 @@ alias kdp="kubectl describe pod"
 alias kl="kubectl logs"
 alias history="fc -li 1"
 alias -g L="| less -R"
+alias -g LL="2>&1 | less -R"
 alias -g G="| grep"
-# }}}
+alias -g GG="2>&1 | grep"
+alias -g H="| head"
+alias -g HH="2>&1 | head"
 
-# export paths {{{
 if [[ -d $HOME/bin ]]; then
     export PATH=$HOME/bin:$PATH
 fi
-
-for d in $HOME/opt/*/bin(N); do
-    if [[ -d $d ]]; then
-        export PATH=$d:$PATH
-    fi
-done
 
 if [[ -d $HOME/.rbenv ]]; then
     export PATH=$HOME/.rbenv/bin:$PATH
@@ -119,18 +67,30 @@ fi
 if which direnv > /dev/null; then
     eval "$(direnv hook zsh)"
 fi
-# }}}
 
-# misc {{{
-HISTSIZE=100000
-SAVEHIST=1000000
-stty stop undef
-# }}}
-
-# load local settings {{{
-if [[ -f $HOME/.zshrc_local ]]; then
-    source $HOME/.zshrc_local
+if which zoxide > /dev/null; then
+    eval "$(zoxide init zsh)"
+    export _ZO_FZF_OPTS='--height 90%'
 fi
-# }}}
 
-typeset -U path
+if [[ -f $HOME/.cargo/env ]]; then
+    . "$HOME/.cargo/env"
+fi
+
+if [[ -f $HOME/.asdf/asdf.sh ]]; then
+    . "$HOME/.asdf/asdf.sh"
+fi
+
+if [[ -f ~/.fzf.zsh ]]; then
+    . "$HOME/.fzf.zsh"
+    export FZF_DEFAULT_OPTS='--height 90%'
+fi
+
+if which starship > /dev/null; then
+    eval "$(starship init zsh)"
+fi
+
+# load local settings
+if [[ -f $HOME/.zshrc_local ]]; then
+    . $HOME/.zshrc_local
+fi

@@ -14,9 +14,7 @@ for f in .vimrc .zshrc .tmux.conf .gitconfig .gitignore .pylintrc; do
 done
 
 # Setup Zsh
-git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-ln -s ~/dotfiles/zsh/blinks-nojima.zsh-theme ~/.oh-my-zsh/themes
-chsh -s /bin/zsh
+TODO
 
 # (Re-login to start zsh)
 
