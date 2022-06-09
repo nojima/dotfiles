@@ -1,16 +1,7 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
-
-# Customize to your needs...
 
 # WSLでコマンドの補完が遅いことへの対策
 unsetopt PATH_DIRS
@@ -29,7 +20,7 @@ export EDITOR=vim
 
 alias gco="git checkout"
 alias gd="git diff"
-alias gdh="git diff HEAD^"
+alias gdh="git diff 'HEAD^'"
 alias gl="git log"
 alias glp="git log -p"
 alias gls="git log --stat"
@@ -52,6 +43,10 @@ alias -g HH="2>&1 | head"
 
 if [[ -d $HOME/bin ]]; then
     export PATH=$HOME/bin:$PATH
+fi
+
+if [[ -d $HOME/go/bin ]]; then
+    PATH="$HOME/go/bin:$PATH"
 fi
 
 if [[ -d $HOME/.rbenv ]]; then
@@ -81,13 +76,17 @@ if [[ -f $HOME/.asdf/asdf.sh ]]; then
     . "$HOME/.asdf/asdf.sh"
 fi
 
-if [[ -f ~/.fzf.zsh ]]; then
+if [[ -f $HOME/.fzf.zsh ]]; then
     . "$HOME/.fzf.zsh"
     export FZF_DEFAULT_OPTS='--height 90%'
 fi
 
 if which starship > /dev/null; then
     eval "$(starship init zsh)"
+fi
+
+if which kubectl > /dev/null; then
+    source <(kubectl completion zsh)
 fi
 
 # load local settings
