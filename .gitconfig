@@ -1,7 +1,15 @@
+[core]
+	excludesfile = /home/nojima/.gitignore
+	editor = vim
+	pager = LESSCHARSET=utf-8 less -FRX
 [user]
 	email = nojima@ynojima.com
 	name = Yusuke Nojima
-[core]
-	excludesfile = /home/nojima/.gitignore
+[merge]
+	ff = false
+[pull]
+	rebase = true
 [push]
 	default = simple
+[include]
+	path = /home/nojima/.gitconfig.private

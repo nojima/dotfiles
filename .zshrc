@@ -6,9 +6,6 @@ fi
 # WSLでコマンドの補完が遅いことへの対策
 unsetopt PATH_DIRS
 
-# リダイレクトによる上書きを禁止する
-setopt noclobber
-
 # Ctrl-S でターミナルをサスペンドしない
 stty stop undef
 
@@ -63,11 +60,6 @@ if which direnv > /dev/null; then
     eval "$(direnv hook zsh)"
 fi
 
-if which zoxide > /dev/null; then
-    eval "$(zoxide init zsh)"
-    export _ZO_FZF_OPTS='--height 90%'
-fi
-
 if [[ -f $HOME/.cargo/env ]]; then
     . "$HOME/.cargo/env"
 fi
@@ -78,7 +70,12 @@ fi
 
 if [[ -f $HOME/.fzf.zsh ]]; then
     . "$HOME/.fzf.zsh"
-    export FZF_DEFAULT_OPTS='--height 90%'
+    export FZF_DEFAULT_OPTS='--height 90% --layout=reverse'
+fi
+
+if which zoxide > /dev/null; then
+    eval "$(zoxide init zsh)"
+    export _ZO_FZF_OPTS='--height 90% --layout=reverse'
 fi
 
 if which starship > /dev/null; then
